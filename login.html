@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Увійти в акаунт</title>
+    <style>
+        body {
+            background: #0f172a;
+            color: #e2e8f0;
+            font-family: "Segoe UI", sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background: #1e293b;
+            padding: 30px 40px;
+            border-radius: 16px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.4);
+            width: 350px;
+            text-align: center;
+        }
+        h1 {
+            color: #38bdf8;
+        }
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border: none;
+            background: #334155;
+            color: white;
+        }
+        button {
+            width: 95%;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            background: #38bdf8;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #0ea5e9;
+        }
+        .message {
+            color: #f87171;
+            margin-top: 10px;
+        }
+        .links {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .links a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Вітаємо на офіційному сайті ЗМІ. Для початку вам потрібно увійти в акаунт</h1>
+        {% if message %}
+            <p class="message">{{ message }}</p>
+        {% endif %}
+        <form method="post" action="/login">
+            <input type="text" name="first_name" placeholder="Ім'я" required>
+            <input type="text" name="last_name" placeholder="Прізвище" required>
+            <input type="password" name="password" placeholder="Пароль" required>
+            <button type="submit">Увійти</button>
+        </form>
+
+        <div class="links">
+            <p>Немає акаунта? <a href="https://t.me/zmiUkrsineGTA_bot">Зареєструйтесь у боті</a></p>
+            <p><a href="#">Відновити пароль</a></p>
+        </div>
+    </div>
+</body>
+</html>
